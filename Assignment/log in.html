@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="https://kit.fontawesome.com/4cb1a40bcb.js" crossorigin="anonymous"></script>
+
+    <style>
+        #main{
+            height:400px;
+            width:300px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            margin: auto;
+
+            background-color: teal;
+            border: 1px solid green;
+       } 
+
+       .click{
+           height:30px ;
+           width: 100px;
+         margin-top: 40px;
+           background-color: blue;
+           color: white;
+           margin-left: 40px;
+     }
+        .same{
+          font-size: 20px;
+          margin: 2%;
+          padding: 2px;
+          margin-left: 40px;
+          margin-top: 40px;
+        }
+        .in{
+            height: 35px;
+            width: 230px;
+         margin-left: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <div id="main">
+        <h1 style="text-align:center;">Sign In</h1>
+        <form >
+
+
+            <p class="same">Email Address <span>*</span></p>
+            <input class="in" type="email" placeholder="Enter Your Email" id="email">
+            <p class="same">Password <span>*</span></p>
+            <input class="in" type="password" name="" id="password" placeholder="Enter Your Password">
+
+
+            <input class="click" style="display:block;margin-top:10px;"  type="submit" value="Sign In" id="">
+            <p class="same">Forgot Password?</p>
+        </form>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    var data=JSON.parse(localStorage.getItem("userData")) || []
+  var form=document.querySelector("form").addEventListener("submit",function(event){
+      event.preventDefault()
+
+      var data={
+          email: document.querySelector("#email").value,
+          password:document.querySelector("#password").value,
+      }
+      if(data===null){
+          alert("Please Create an Accoount")
+      }
+      else if(data.email===data.email && data.password===data.password){
+          alert("Sign is Successfull")
+          localStorage.setItem("signin",JSON.stringify(data))
+          window.location.href="navbar.html"
+      }
+      else{
+          alert("User Does not Exist")
+
+      }
+
+
+  })
+</script> 
